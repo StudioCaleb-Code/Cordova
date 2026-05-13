@@ -2,7 +2,7 @@
   "providers": ["php"],
   "phases": {
     "setup": {
-      "cmds": ["echo 'Configurando PHP puro...'"]
+      "cmds": ["echo 'Configurando PHP al puro...'"]
     }
   },
   "start": {
