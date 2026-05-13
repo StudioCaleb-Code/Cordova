@@ -1,19 +1,23 @@
 FROM php:8.2-apache
 
-# Extensiones necesarias
+# 1. Extensiones necesarias
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Habilitar mod_rewrite para .htaccess
+# 2. Activar rewrite para que funcione tu .htaccess
 RUN a2enmod rewrite
 
-# Copiar archivos
-COPY . /var/www/html/
+# 3. FIX CRÍTICO: Desactivar módulos que chocan (Adiós al error AH00534)
+RUN a2dismod mpm_event && a2enmod mpm_prefork
 
-# Ajustar permisos
+# 4. Configurar permisos para el .htaccess
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
+# 5. Copiar tu proyecto
+COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html
 
-# Configurar el puerto dinámico de Railway de forma simple
-RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+# 6. Configurar el puerto dinámico de Railway
+RUN sed -i "s/Listen 80/Listen \${PORT}/g" /etc/apache2/ports.conf
+RUN sed -i "s/<VirtualHost \*:80>/<VirtualHost \*:\${PORT}>/g" /etc/apache2/sites-available/000-default.conf
 
-# Comando de arranque estándar
 CMD ["apache2-foreground"]
