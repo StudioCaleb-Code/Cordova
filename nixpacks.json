@@ -1,0 +1,11 @@
+{
+  "providers": ["php"],
+  "phases": {
+    "setup": {
+      "cmds": ["echo 'Configurando PHP puro...'"]
+    }
+  },
+  "start": {
+    "cmd": "php -S 0.0.0.0:$PORT index.php"
+  }
+}
