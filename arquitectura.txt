@@ -1,0 +1,53 @@
+CORDOVA/
+|_ App/
+|   |_ Config/
+|   |   |_ Config.php  # rutas generales bases pero inteligents no solo local
+|   |   |_ Database.php  # conexion a mi db en linea con .env
+|   |   |_ Env_loader.php # no se ni para que estas
+|   |_ Core/
+|   |   |_ Router.php
+|   |   |_ Model.php
+|   |   |_ Controller.php
+|   |   |_ View.php
+|   |_ Models/
+|   |   |_ Productos.php
+|   |   |_ Categorias.php
+|   |   |_ Usuarios.php
+|   |   |_ Clientes.php
+|   |_ Controllers/
+|   |   |_ AuthController.php 
+|   |   |_ PanelController.php 
+|   |   |_ ProductosController.php 
+|   |   |_ CategoriasController.php 
+|   |   |_ ...
+|   |_ Middlewares/
+|   |   |_ AuthMidlleware.php
+|   |   |_ ...
+|   |_ Routes/
+|   |_ Views/
+|       |_ Auth/
+|       |   |_ Login.php
+|       |_ Layout/
+|       |   |_ header.php
+|       |   |_ sidebar.php
+|       |_ Panel/
+|           |_ Dashboard/
+|           |_ Productos/
+|           |_ Categorias/
+|           |_ Usuarios/
+|           |_ Clientes/
+|           |_ index.php # 
+|
+|_ public/
+|   |_ uploads/
+|       |_ productos/
+|       |_ fotos/
+|_ assets/
+|   |_ css/
+|   |_ js/
+|   |_ img/
+|_ .htaccess
+|_ .env  # mis datos para conectar mi db nuve
+|_ index.php # front controller
+|_ .gitignore
+|_ componser.json
