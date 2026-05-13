@@ -1,9 +1,6 @@
-# Ignorar el archivo de configuración local con contraseñas
 .env
-
-# Ignorar la carpeta donde se suben las imágenes (para que Railway no las sobreescriba)
-public/uploads/
-
-# Ignorar archivos temporales del sistema operativo
-.DS_Store
-Thumbs.db
+/public/uploads/
+/uploads/
+.idea/
+.vscode/
+vendor/
